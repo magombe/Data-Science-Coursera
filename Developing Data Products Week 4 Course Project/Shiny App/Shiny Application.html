@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:7952/ -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">jquery[3.6.0];shiny-css[1.7.1];shiny-javascript[1.7.1];selectize[0.12.4];bootstrap[3.4.1]</script>
+<script src="./Shiny Application_files/jquery.min.js.download"></script>
+<link href="./Shiny Application_files/shiny.min.css" rel="stylesheet">
+<script src="./Shiny Application_files/shiny.min.js.download"></script>
+<link href="./Shiny Application_files/selectize.bootstrap3.css" rel="stylesheet">
+<script src="./Shiny Application_files/selectize.min.js.download"></script>
+<script src="./Shiny Application_files/selectize-plugin-a11y.min.js.download"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./Shiny Application_files/bootstrap.min.css" rel="stylesheet">
+<link href="./Shiny Application_files/bootstrap-accessibility.min.css" rel="stylesheet">
+<script src="./Shiny Application_files/bootstrap.min.js.download"></script>
+<script src="./Shiny Application_files/bootstrap-accessibility.min.js.download"></script>  <title>Shiny Application</title>
+  <title>The relationship between variables and miles per gallon (MPG)</title>
+<style data-styled="active" data-styled-version="5.3.0"></style></head>
+<body data-new-gr-c-s-check-loaded="14.1052.0" data-gr-ext-installed="">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <span class="navbar-brand">Shiny Application</span>
+      </div>
+      <ul class="nav navbar-nav" data-tabsetid="2775">
+        <li class="active">
+          <a href="http://127.0.0.1:7952/#tab-2775-1" data-toggle="tab" data-bs-toggle="tab" data-value="Analysis">Analysis</a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:7952/#tab-2775-2" data-toggle="tab" data-bs-toggle="tab" data-value="About the Data Set">About the Data Set</a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:7952/#tab-2775-3" data-toggle="tab" data-bs-toggle="tab" data-value="More Data Detail">More Data Detail</a>
+        </li>
+        <li>
+          <a href="http://127.0.0.1:7952/#tab-2775-4" data-toggle="tab" data-bs-toggle="tab" data-value="Go back to my Github repository">Go back to my Github repository</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="tab-content" data-tabsetid="2775">
+      <div class="tab-pane active" data-value="Analysis" id="tab-2775-1">
+        <div class="container-fluid">
+          <h2>The relationship between variables and miles per gallon (MPG)</h2>
+          <div class="row">
+            <div class="col-sm-4">
+              <form class="well" role="complementary">
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" id="variable-label" for="variable-selectized">Variable:</label>
+                  <div>
+                    <select id="variable" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="cyl" selected="selected">Number of cylinders</option></select><div class="selectize-control single plugin-selectize-plugin-a11y"><div class="selectize-input items full has-options has-items"><div class="item" data-value="cyl">Number of cylinders</div><input type="text" autocomplete="off" tabindex="" id="variable-selectized" role="combobox" aria-expanded="false" haspopup="listbox" aria-owns="jo3jdx66sd" style="width: 4px;"></div><div class="selectize-dropdown single plugin-selectize-plugin-a11y" style="display: none;"><div class="selectize-dropdown-content" role="listbox" id="jo3jdx66sd"></div></div></div>
+                    <script type="application/json" data-for="variable" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+                  </div>
+                </div>
+                <div class="form-group shiny-input-container">
+                  <div class="checkbox">
+                    <label>
+                      <input id="outliers" type="checkbox" class="shiny-bound-input">
+                      <span>Show BoxPlot's outliers</span>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-8" role="main">
+              <h3>
+                <div id="caption" class="shiny-text-output shiny-bound-output" aria-live="polite">mpg ~ cyl</div>
+              </h3>
+              <div class="tabbable">
+                <ul class="nav nav-tabs" data-tabsetid="2336" role="tablist">
+                  <li class="active" role="presentation">
+                    <a href="http://127.0.0.1:7952/#tab-2336-1" data-toggle="tab" data-bs-toggle="tab" data-value="BoxPlot" role="tab" id="ui-tab-586" tabindex="0" aria-selected="true" aria-controls="tab-2336-1">BoxPlot</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="http://127.0.0.1:7952/#tab-2336-2" data-toggle="tab" data-bs-toggle="tab" data-value="Regression model" role="tab" id="ui-tab-158" tabindex="-1" aria-selected="false" aria-controls="tab-2336-2">Regression model</a>
+                  </li>
+                </ul>
+                <div class="tab-content" data-tabsetid="2336">
+                  <div class="tab-pane active" data-value="BoxPlot" id="tab-2336-1" role="tabpanel" tabindex="0" aria-hidden="false" aria-labelledby="ui-tab-586">
+                    <div id="mpgBoxPlot" class="shiny-plot-output shiny-bound-output" style="width:100%;height:400px;" aria-live="polite"><img src="data:image/png;base64,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" width="974" height="400" alt="Plot object"></div>
+                  </div>
+                  <div class="tab-pane" data-value="Regression model" id="tab-2336-2" role="tabpanel" tabindex="-1" aria-hidden="true" aria-labelledby="ui-tab-158">
+                    <div id="mpgPlot" class="shiny-plot-output shiny-bound-output" style="width:100%;height:400px;" aria-live="polite"></div>
+                    <pre class="shiny-text-output noplaceholder shiny-bound-output" id="fit" aria-live="polite"></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" data-value="About the Data Set" id="tab-2775-2">
+        <h3>Regression Models Course Project (from Coursera)</h3>
+        <span class="help-block">
+          You work for Motor Trend, a magazine about the automobile industry Looking at a data set of a collection of cars, they are interested in exploring the relationship
+          between a set of variables and miles per gallon (MPG) (outcome). They are particularly interested in the following two questions: Is an automatic or manual transmission better for MPG. Quantify the MPG difference between automatic and manual transmissions
+        </span>
+        <h3>Important</h3>
+        <p>A data frame with 32 observations on 11 variables.</p>
+        <a>https://class.coursera.org/regmods-008</a>
+      </div>
+      <div class="tab-pane" data-value="More Data Detail" id="tab-2775-3">
+        <h2>Motor Trend Car Road Tests</h2>
+        <hr>
+        <h3>Description</h3>
+        <span class="help-block">
+          The data was extracted from the 1974 Motor Trend US magazine,
+           and comprises fuel consumption and 10 aspects of automobile design and performance
+           for 32 automobiles (1973-74 models).
+        </span>
+        <h3>Format</h3>
+        <p>A data frame with 32 observations on 11 variables.</p>
+        <p>  [, 1]   mpg         Miles/(US) gallon</p>
+        <p>  [, 2]	 cyl	 Number of cylinders</p>
+        <p>  [, 3]	 disp	 Displacement (cu.in.)</p>
+        <p>  [, 4]	 hp	 Gross horsepower</p>
+        <p>  [, 5]	 drat	 Rear axle ratio</p>
+        <p>  [, 6]	 wt	 Weight (lb/1000)</p>
+        <p>  [, 7]	 qsec	 1/4 mile time</p>
+        <p>  [, 8]	 vs	 V/S</p>
+        <p>  [, 9]	 am	 Transmission (0 = automatic, 1 = manual)</p>
+        <p>  [,10]	 gear	 Number of forward gears</p>
+        <p>  [,11]	 carb	 Number of carburetors</p>
+        <h3>Source</h3>
+        <p>Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391-411.</p>
+      </div>
+      <div class="tab-pane" data-value="Go back to my Github repository" id="tab-2775-4">
+        <a>https://github.com/manastiwari/Developing-Data-Products-Week-4-Course-Project</a>
+        <hr>
+        <h4>I hope you like the Shiny App</h4>
+        <h4>The name of the repository is Developing Data Products Week 4 Course Project</h4>
+      </div>
+    </div>
+  </div>
+
+
+<div aria-live="assertive" role="log" aria-relevant="additions" aria-atomic="true" style="position: absolute; width: 1px; height: 1px; margin-top: -1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;"></div><script>mendeleyWebImporter = {
+  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+  open() { return this._call('open', []); },
+  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.6332408486035523', methodName, methodArgs }, 'http://127.0.0.1:7952');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script><quillbot-extension-portal></quillbot-extension-portal></body><quillbot-extension-root></quillbot-extension-root><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
